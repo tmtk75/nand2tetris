@@ -18,10 +18,10 @@ CHIP HalfAdder {
     Xor (a=a, b=b, out=sum);
 
 /*
-   a   b | sum carry
-   0   0 |  0    0  
-   1   0 |  1    0  
-   0   1 |  1    0  
-   1   1 |  0    1  
+   a   b | carry  sum
+   0   0 |   0     0 
+   1   0 |   0     1 
+   0   1 |   0     1 
+   1   1 |   1     0 
  */
 }
