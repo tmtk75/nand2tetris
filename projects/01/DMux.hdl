@@ -15,4 +15,16 @@ CHIP DMux {
 
     PARTS:
     // Put your code here:
+    Not (in=sel, out=x);
+    // y = sel;
+    And (a=in, b=x,           out=a);
+    And (a=in, b=sel /* y */, out=b);
+
+/*
+   in | sel |  a  |  b  |
+    0 |  0  |  0  |  0  |
+    0 |  1  |  0  |  0  |
+    1 |  0  |  1  |  0  |
+    1 |  1  |  0  |  1  |
+ */
 }
