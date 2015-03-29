@@ -19,4 +19,11 @@ CHIP Mux8Way16 {
 
     PARTS:
     // Put your code here:
+    Not(in=sel[0], out=notSel0);
+    Not(in=sel[1], out=notSel1);
+    Not(in=sel[2], out=notSel2);
+    And(a=notSel0, b=notSel1, out=and01); And(a=and01, b=notSel2, out=andA);
+    And(a=sel[0],  b=notSel1, out=and01); And(a=and01, b=notSel2, out=andA);
+    And(a=sel[0],  b=sel[1],  out=and01); And(a=and01, b=notSel2, out=andA);
+    // ...
 }
