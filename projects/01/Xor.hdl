@@ -7,11 +7,49 @@
  * Exclusive-or gate:
  * out = not (a == b)
  */
-
 CHIP Xor {
     IN a, b;
     OUT out;
 
     PARTS:
     // Put your code here:
+    Not (in=a, out=notA);
+    Not (in=b, out=notB);
+    Nand (a=a,    b=notB, out=x);
+    Nand (a=notA, b=b,    out=y);
+    Nand (a=x, b=y, out=out);
+/*
+  Xor
+  | a | b | out |
+  | 0 | 0 |  0  |
+  | 0 | 1 |  1  |
+  | 1 | 0 |  1  |
+  | 1 | 1 |  0  |
+
+  Or
+  | a | b | out |
+  | 0 | 0 |  0  |
+  | 0 | 1 |  1  |
+  | 1 | 0 |  1  |
+  | 1 | 1 |  1  |
+
+  And
+  | a | b | out |
+  | 0 | 0 |  0  |
+  | 0 | 1 |  0  |
+  | 1 | 0 |  0  |
+  | 1 | 1 |  1  |
+
+  Not
+  | a | out |
+  | 0 |  1  |
+  | 1 |  0  |
+
+  Nand
+  | a | b | out |
+  | 0 | 0 |  1  |
+  | 0 | 1 |  1  |
+  | 1 | 0 |  1  |
+  | 1 | 1 |  0  |
+*/
 }
